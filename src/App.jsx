@@ -11,7 +11,8 @@ import Navbar from "./components/Navbar"
 
 function App() {
   const [ token, setToken ] = useState(localStorage.getItem("token"));
-  const [ cart, setCart ] = useState({});
+  const [ cart, setCart ] = useState([]);
+  console.log(cart);
   return (
     <div>
       <Navbar cart={cart} token={token} setToken={setToken} />

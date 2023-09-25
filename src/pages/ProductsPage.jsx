@@ -21,7 +21,7 @@ function addToCart(product) {
         ...product,
         quantity: 1
     }
-    setCart([cartItem]);
+    setCart([...cart, cartItem]);
 
 }
 
