@@ -49,3 +49,22 @@ form {
 label { 
   text-align: left;
  }
+
+ product {
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  justify-content: center;
+  padding: 2em;
+  margin: 2em;
+  border: 1px solid#ccc;
+  border-radius: 0.5em;
+  text-align: center;
+  transition: all 300ms;
+}
+.product img {
+  width: 200px;
+}
+
+
+
