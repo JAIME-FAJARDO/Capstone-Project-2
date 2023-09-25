@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-export default function NavBar ({ token, setToken }) {
+export default function Navbar ({ cart, token, setToken }) {
     // TODO show different links if logged in or not
     // TODO Implement logout functionality
     function logout() {
@@ -11,6 +11,7 @@ export default function NavBar ({ token, setToken }) {
         <header>
 
             <nav>
+                <span>In the Cart{cart.length}</span>
                 <ul>
                     <li><Link to="/productspage">Products</Link></li>
                     { token && <li><Link to="/profile">Profile</Link></li> }

@@ -4,37 +4,22 @@ import ProductsPage from './pages/ProductsPage'
 import { useState } from "react"
 import { Routes, Route } from "react-router-dom"
 
-// import Profile from "pages/Profile"
-// import Login from "pages/Login"
-// import Register from "pages/Register"
-// import Posts from "pages/Posts"
-// import NavBar from "components/NavBar"
-
-// import Posts from "./pages/Posts"
 import Profile from "./pages/Profile"
 import Login from "./pages/Login"
 import Register from "./pages/Register"
-import NavBar from "./components/NavBar"
-
-// import Posts from "/pages/Posts"
-// import Profile from "/pages/Profile"
-// import Login from "/pages/Login"
-// import Register from "/pages/Register"
-// import NavBar from "/components/NavBar"
-
-
+import Navbar from "./components/Navbar"
 
 function App() {
   const [ token, setToken ] = useState(localStorage.getItem("token"));
-  
+  const [ cart, setCart ] = useState({});
   return (
     <div>
-      <NavBar token={token} setToken={setToken} />
+      <Navbar cart={cart} token={token} setToken={setToken} />
       <Routes>
         {/* <Route path="/posts" element={<Posts token={token} />} />
          */}
 
-        <Route path="/productspage" element={<ProductsPage token={token} />} />
+        <Route path="/productspage" element={<ProductsPage cart={cart} setCart={setCart} token={token} />} />
         <Route path="/profile" element={<Profile token={token} />} />
         <Route path="/login" element={<Login setToken={setToken}/>} />
         <Route path="/register" element={<Register setToken={setToken}/>} />

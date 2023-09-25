@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
    
-const ProductsPage = () => {
+const ProductsPage = ({cart, setCart}) => {
 const [products, setProducts] = useState([]);
 
 useEffect(() => {
@@ -16,6 +16,14 @@ useEffect(() => {
     fetchProducts();
 }, [])
 
+function addToCart(product) {
+    const cartItem = {
+        ...product,
+        quantity: 1
+    }
+    setCart([cartItem]);
+
+}
 
 return (
     <div>
@@ -27,6 +35,7 @@ return (
                     <p>{product.title}</p>
                     <img src={product.image} alt={product.title}/>
                     <p>{product.price}</p>
+                    <button onClick={() => addToCart(product)}>Add to Cart</button>
                 </li>
             ))}
         </ul>
