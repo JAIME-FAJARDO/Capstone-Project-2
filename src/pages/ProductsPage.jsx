@@ -4,12 +4,15 @@ const ProductsPage = ({cart, setCart}) => {
 const [products, setProducts] = useState([]);
 const [categories, setCategories] = useState([]);
 const [selectedCategory, setSelectedCategory] = useState('all');
-const [priceRange, setPriceRange] = useState(0, 1000);
+const [priceRange, setPriceRange] = useState(0);
+const [sortBy, setSortBy] = useState('price');
+
 useEffect(() => {
+    
     
     const fetchProducts = async () => {
         
-        const response = await fetch('https://fakestoreapi.com/products')
+        const response = await fetch('https://fakestoreapi.com/products');
         const products = await response.json();
         const categories = products.map(product => product.category);
         const uniqueCategories = [...new Set(categories)];
@@ -33,12 +36,19 @@ console.log(categories);
 function selectCategory (e) {
     setSelectedCategory(e.target.value);
 }
+
+function selectSortBy (e) {
+    setSortBy(e.target.value);
+}
+
 let fileteredProducts = products;
 if (selectedCategory !== 'all') {
     fileteredProducts = products.filter(product => product.category === selectedCategory);
 }
 
 console.log(products);
+console.log(priceRange);
+console.log(sortBy);
 return (
     <div>
         <h1>Products</h1>
@@ -49,7 +59,13 @@ return (
 
             })}
         </select>
-        <input type="range" min="0" max="1000" value={priceRange[0]} onChange={(e) => setPriceRange([e.target.value, priceRange[1]])}/> 
+        <input type="range" min="0" max="300" value={priceRange} onChange={(e) => setPriceRange([e.target.value, priceRange[1]])}/> 
+        <h3>Sort By</h3>
+    <select value={sortBy} onChange={selectSortBy}></select>
+        <select>
+            <option value="price">Price</option>
+            <option value="rating">Rating</option>
+        </select>
         <ul>
             {products.map(product => (
                 <li className="product" key={product.id}>
