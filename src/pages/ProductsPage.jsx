@@ -39,6 +39,15 @@ function selectCategory (e) {
 
 function selectSortBy (e) {
     setSortBy(e.target.value);
+} 
+
+function sortByPrice(ascending) {
+    fileteredProducts.sort((a, b) => {
+      if (!ascending) {
+        return b.price - a.price
+      }  
+        return a.price - b.price
+    })  
 }
 
 let fileteredProducts = products;
@@ -49,6 +58,15 @@ if (selectedCategory !== 'all') {
 console.log(products);
 console.log(priceRange);
 console.log(sortBy);
+
+if (sortBy === 'price') {
+    // sortByPrice(true);
+    sortByPrice();
+// fileteredProducts.sort((a, b) => b.price - a.price);
+} else if(sortBy === 'rating') {
+    fileteredProducts.sort((a, b) => b.rating.rate - a.rating.rate);
+}
+
 return (
     <div>
         <h1>Products</h1>
@@ -72,7 +90,8 @@ return (
                     <h3>{product.description}</h3>
                     <p>{product.title}</p>
                     <img src={product.image} alt={product.title}/>
-                    <p>{product.price}</p>
+                    <p>Price: ${product.price}</p>
+                    <p>Rating: {product.rating.rate}</p>
                     <button onClick={() => addToCart(product)}>Add to Cart</button>
                 </li>
             ))}

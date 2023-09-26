@@ -15,7 +15,7 @@ function App() {
   console.log(cart);
   return (
     <div>
-      <Navbar cart={cart} token={token} setToken={setToken} />
+      <Navbar cart={cart} setCart={setCart} token={token} setToken={setToken} />
       <Routes>
         {/* <Route path="/posts" element={<Posts token={token} />} />
          */}
