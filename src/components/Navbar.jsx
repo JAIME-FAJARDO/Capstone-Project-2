@@ -30,7 +30,8 @@ export default function Navbar ({ cart, setCart, token, setToken }) {
                     ))}          
                 
                 </ul>
-                <p>Total = {cart.reduce((acc, item) => acc + item.price, 0)}</p>
+                
+                { token && <h2>Total = {cart.reduce((acc, item) => acc + item.price, 0)}</h2> }
 
             </nav>
         </header>
