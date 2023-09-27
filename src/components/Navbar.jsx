@@ -19,7 +19,7 @@ export default function Navbar ({ cart, setCart, token, setToken }) {
                 <ul>
                         
                     <li><Link to="/productspage">Products</Link></li>
-                    {token && <li><Link to="/singleproductpage">Chosen Item</Link></li> }
+                    
                     { token && <li><Link to="/profile">Profile</Link></li> }
                     { !token && <li><Link to="/login">Login</Link></li> }
                     { !token && <li><Link to="/register">Register</Link></li> }

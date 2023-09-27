@@ -1,5 +1,6 @@
 import './App.css'
 import ProductsPage from './pages/ProductsPage'
+import SingleProductPage from './pages/SingleProductPage'
 
 import { useState } from "react"
 import { Routes, Route } from "react-router-dom"
@@ -12,7 +13,7 @@ import Navbar from "./components/Navbar"
 function App() {
   const [ token, setToken ] = useState(localStorage.getItem("token"));
   const [ cart, setCart ] = useState([]);
-  console.log(cart);
+  // console.log(cart);
   return (
     <div>
       <Navbar cart={cart} setCart={setCart} token={token} setToken={setToken} />
@@ -22,6 +23,7 @@ function App() {
 
         <Route path="/productspage" element={<ProductsPage cart={cart} setCart={setCart} token={token} />} />
         <Route path="/profile" element={<Profile token={token} />} />
+        <Route path="/productspage/:productId" element={<SingleProductPage cart={cart} setCart={setCart} token={token} />} />
         <Route path="/login" element={<Login setToken={setToken}/>} />
         <Route path="/register" element={<Register setToken={setToken}/>} />
       </Routes>
