@@ -1,6 +1,5 @@
 const COHORT_NAME = '2302-ACC-ET-WEB-PT-A'
 const BASE_URL = 'https://fakestoreapi.com'
-// const BASE_URL =`https://strangers-things.herokuapp.com/api/${COHORT_NAME}`
 
 export const fetchPosts = async () => {
     try {
