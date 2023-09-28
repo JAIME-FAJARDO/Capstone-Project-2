@@ -18,9 +18,7 @@ function App() {
     <div>
       <Navbar cart={cart} setCart={setCart} token={token} setToken={setToken} />
       <Routes>
-        {/* <Route path="/posts" element={<Posts token={token} />} />
-         */}
-
+       
         <Route path="/productspage" element={<ProductsPage cart={cart} setCart={setCart} token={token} />} />
         <Route path="/profile" element={<Profile token={token} />} />
         <Route path="/productspage/:productId" element={<SingleProductPage cart={cart} setCart={setCart} token={token} />} />

@@ -1,18 +1,10 @@
-
 import { useState } from "react"
-
-// import { registerUser } from '../API'; 
 import { registerUser } from './API'; 
 import { useNavigate } from 'react-router-dom'; 
-
 import AuthForm from '../components/AuthForm'
 
-export default function Register ({ setToken }) {
-    // TODO sign-up for an account with username and password
-    // const Register = ({token, setToken})
-    const navigate = useNavigate()
-    // const [username, setUsername] = useState('')
-    // const [password, setPassword] = useState('')
+export default function Register ({ setToken }) {    
+    const navigate = useNavigate();
     async function handleSubmit (e, username, password) {
         e.preventDefault();
         const token = await registerUser(username, password);
