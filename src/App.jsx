@@ -17,6 +17,7 @@ function App() {
   return (
     <div>
       <Navbar cart={cart} setCart={setCart} token={token} setToken={setToken} />
+      
       <Routes>
        
         <Route path="/productspage" element={<ProductsPage cart={cart} setCart={setCart} token={token} />} />
